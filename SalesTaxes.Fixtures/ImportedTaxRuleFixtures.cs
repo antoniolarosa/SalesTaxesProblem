@@ -22,39 +22,39 @@ namespace SalesTaxes.Fixtures
         }
 
         [Test]
-        public void IsApplyiableTo_NoImportedProduct_IsNotApplyiable()
+        public void IsApplicableFor_NoImportedProduct_IsNotApplyiable()
         {
             //Arrange
             IProduct product = new Product(1,1, "1 book", "book", false, CategoryType.Books);
             
             //Act
-            bool isApplyiable = _importedTaxRule.IsApplyiableTo(product);
+            bool isApplyiable = _importedTaxRule.IsApplicableFor(product);
 
             //Assert
             Assert.IsFalse(isApplyiable);
         }
 
         [Test]
-        public void IsApplyiableTo_ImportedProduct_IsApplyiable()
+        public void IsApplicableFor_ImportedProduct_IsApplyiable()
         {
             //Arrange
             IProduct product = new Product(1, 1, "1 imported book", "book", true, CategoryType.Books);
 
             //Act
-            bool isApplyiable = _importedTaxRule.IsApplyiableTo(product);
+            bool isApplyiable = _importedTaxRule.IsApplicableFor(product);
 
             //Assert
             Assert.IsTrue(isApplyiable);
         }
 
         [Test]
-        public void IsApplyiableTo_NullProduct_ThrowException()
+        public void IsApplicableFor_NullProduct_ThrowException()
         {
             //Arrange
             IProduct product = null;
 
             //Act and Assert
-            Assert.Throws<ArgumentNullException>(() => _importedTaxRule.IsApplyiableTo(product));
+            Assert.Throws<ArgumentNullException>(() => _importedTaxRule.IsApplicableFor(product));
         }
 
         [Test]

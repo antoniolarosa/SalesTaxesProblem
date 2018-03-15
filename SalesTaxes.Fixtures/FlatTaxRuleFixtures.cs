@@ -23,7 +23,7 @@ namespace SalesTaxes.Fixtures
         }
 
         [Test]
-        public void IsApplyiableTo_ExcludedCategoryProduct_NotAppyiable()
+        public void IsApplicableFor_ExcludedCategoryProduct_NotAppyiable()
         {
             //Arrange
             _flatTaxRule.ExcludedCategories = new HashSet<CategoryType>()
@@ -33,34 +33,34 @@ namespace SalesTaxes.Fixtures
             IProduct product = new Product(1, 1, "1 book", "book", false, CategoryType.Books);
 
             //Act
-            bool isApplyiable = _flatTaxRule.IsApplyiableTo(product);
+            bool isApplyiable = _flatTaxRule.IsApplicableFor(product);
 
             //Assert
             Assert.IsFalse(isApplyiable);
         }
 
         [Test]
-        public void IsApplyiableTo_NotExcludedCategoryProduct_Appyiable()
+        public void IsApplicableFor_NotExcludedCategoryProduct_Appyiable()
         {
             //Arrange
             _flatTaxRule.ExcludedCategories = new HashSet<CategoryType>();
             IProduct product = new Product(1, 1, "1 book", "book", false, CategoryType.Books);
 
             //Act
-            bool isApplyiable = _flatTaxRule.IsApplyiableTo(product);
+            bool isApplyiable = _flatTaxRule.IsApplicableFor(product);
 
             //Assert
             Assert.IsTrue(isApplyiable);
         }
 
         [Test]
-        public void IsApplyiableTo_NullProduct_ThrowException()
+        public void IsApplicableFor_NullProduct_ThrowException()
         {
             //Arrange
             IProduct product = null;
 
             //Act and Assert
-            Assert.Throws<ArgumentNullException>(() => _flatTaxRule.IsApplyiableTo(product));
+            Assert.Throws<ArgumentNullException>(() => _flatTaxRule.IsApplicableFor(product));
         }
 
         [Test]

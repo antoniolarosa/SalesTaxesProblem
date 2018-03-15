@@ -8,7 +8,7 @@ namespace SalesTaxes.Services.Taxes.Rules
     {
         public decimal Rate { get; set; }
 
-        public override bool IsApplyiableTo(IProduct product)
+        public override bool IsApplicableFor(IProduct product)
         {
             if (product == null) throw new ArgumentNullException(nameof(product));
 

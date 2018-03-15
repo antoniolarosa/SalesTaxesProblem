@@ -25,7 +25,7 @@ namespace SalesTaxes.Services.Taxes
                 IProduct product = shoppingBasket.Products[i];
                 foreach (TaxRule taxRule in _taxRules)
                 {
-                    if (taxRule.IsApplyiableTo(product))
+                    if (taxRule.IsApplicableFor(product))
                     {
                         ProductDecorator productDecorator = taxRule.GetTaxableProductDecorator(product);
                         product = productDecorator;
