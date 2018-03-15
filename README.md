@@ -130,7 +130,7 @@ Running time analysis of this method is `O(number of taxes * number of products 
 O(constant * number of products) = O(number of products)
 ```
 
-I want to allow some update to the software without do a new deploy. That's why some information are configurable in `appsettings.json`.
+I want to allow the possibility to update parts of the software without the need to do a new deploy. That's why some information are configurable in `appsettings.json`.
 
 Now I can handle a lot of use cases.
 
