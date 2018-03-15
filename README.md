@@ -152,5 +152,5 @@ Now I can handle a lot of use cases.
 	c) Create a new class that inherit from `Tax`
 	d) If necessary, create a new concrete decorator
 
-The only class that we open is `TaxSettings`. We don't touch the tax calculator engine. We just create new classes.
-With this organization I'm following the **open/closed principle**.
+The only class that I open is `TaxSettings`. I don't touch the tax calculator engine. I just create new classes.
+In this way I'm following the **open/closed principle**.
