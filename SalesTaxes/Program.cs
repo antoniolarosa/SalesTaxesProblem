@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Configuration;
-using SalesTaxes.Models;
+using SalesTaxes.Entities;
 using SalesTaxes.Services;
 using SalesTaxes.Services.Taxes;
 using SalesTaxes.Services.Taxes.Rules;

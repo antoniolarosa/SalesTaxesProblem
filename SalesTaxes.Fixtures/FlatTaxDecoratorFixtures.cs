@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using SalesTaxes.Models;
+using SalesTaxes.Entities;
 using SalesTaxes.Services.Taxes.Decorators;
 
 namespace SalesTaxes.Fixtures

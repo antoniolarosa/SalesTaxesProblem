@@ -1,5 +1,5 @@
 ﻿using System;
-using SalesTaxes.Models;
+using SalesTaxes.Entities;
 using SalesTaxes.Services.Taxes.Decorators;
 
 namespace SalesTaxes.Services.Taxes.Rules

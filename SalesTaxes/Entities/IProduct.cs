@@ -1,4 +1,4 @@
-﻿namespace SalesTaxes.Models
+﻿namespace SalesTaxes.Entities
 {
     public interface IProduct
     {

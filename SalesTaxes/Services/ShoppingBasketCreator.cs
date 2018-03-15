@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using SalesTaxes.Models;
+using SalesTaxes.Entities;
 
 namespace SalesTaxes.Services
 {

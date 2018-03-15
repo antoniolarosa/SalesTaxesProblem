@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using SalesTaxes.Models;
+using SalesTaxes.Entities;
 using SalesTaxes.Services;
 
 namespace SalesTaxes.Fixtures

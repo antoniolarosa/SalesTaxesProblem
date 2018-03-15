@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SalesTaxes.Models
+namespace SalesTaxes.Entities
 {
     public class ReceiptDetail
     {

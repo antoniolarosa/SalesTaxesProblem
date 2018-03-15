@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Configuration;
-using SalesTaxes.Models;
+using SalesTaxes.Entities;
 
 namespace SalesTaxes.Settings
 {

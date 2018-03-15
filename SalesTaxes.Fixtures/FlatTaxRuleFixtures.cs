@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using SalesTaxes.Models;
+using SalesTaxes.Entities;
 using SalesTaxes.Services.Taxes.Decorators;
 using SalesTaxes.Services.Taxes.Rules;
 
