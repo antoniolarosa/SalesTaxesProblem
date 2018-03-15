@@ -15,12 +15,12 @@ namespace SalesTaxes
         {
             #region Bootstrap
             
-            var configurationHelper = new ConfigurationHelper();
-            IConfigurationRoot configuration = configurationHelper.GetConfigurationRoot();
-            TaxSettings taxSettings = configurationHelper.GetTaxSettings(configuration);
-            IList<Tax> taxRules = taxSettings.GetAllTaxRules();
-            var taxCalculator = new TaxCalculator(taxRules);
-            IDictionary<string, CategoryType> productCategories = configurationHelper.GetProductCategories(configuration);
+            IConfigurationRoot configuration = GetConfigurationRoot();
+            var configurationHelper = new ConfigurationHelper(configuration);
+            TaxSettings taxSettings = configurationHelper.GetTaxSettings();
+            IList<Tax> taxes = taxSettings.GetAllTaxes();
+            var taxCalculator = new TaxCalculator(taxes);
+            IDictionary<string, CategoryType> productCategories = configurationHelper.GetProductCategories();
             var shoppingBasketCreator = new ShoppingBasketCreator();
             var receiptDetailCreator = new ReceiptDetailCreator();
             var receiptDeatilPrinter = new ReceiptDeatilPrinter();
@@ -33,6 +33,16 @@ namespace SalesTaxes
             IList<TaxedProduct> taxedProducts = taxCalculator.ApplyTaxes(shoppingBasket);
             ReceiptDetail receiptDetail = receiptDetailCreator.CreateReceiptDetail(taxedProducts);
             receiptDeatilPrinter.Print(receiptDetail);
+        }
+
+        private static IConfigurationRoot GetConfigurationRoot()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            IConfigurationRoot configuration = builder.Build();
+            return configuration;
         }
     }
 }

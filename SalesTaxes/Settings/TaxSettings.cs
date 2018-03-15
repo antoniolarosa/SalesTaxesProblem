@@ -9,7 +9,7 @@ namespace SalesTaxes.Settings
         public IList<FlatTax> FlatTaxes { get; set; } = new List<FlatTax>();
         public IList<ImportedTax> ImportedTaxes { get; set; } = new List<ImportedTax>();
 
-        public IList<Tax> GetAllTaxRules()
+        public IList<Tax> GetAllTaxes()
         {
             IEnumerable<Tax> flatTaxRules = FlatTaxes;
             IEnumerable<Tax> importedProductTaxRules = ImportedTaxes;
