@@ -57,7 +57,7 @@ Total: 74.68
 
 ## Approach to the problem
 
-The core of this software is the engine for tax calculations. There are a lot of responsabilities to handle so I'll explain how I split them in different classes.
+The core of this software is the engine for tax calculations. There are a lot of responsabilities to handle, so I'll explain how I split them in different classes.
 
 I add to a target product the logic of tax calculation at runtime with the **Decorator pattern**.
 So a concrete decorator has the responsability to handle business logic for tax calculation.
