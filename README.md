@@ -134,23 +134,23 @@ I want to allow some update to the software without do a new deploy. That's why 
 
 Now I can handle a lot of use cases.
 
-- What if I want to change the rate of a tax?
-	I can update the appsettings.json. No deploy needed.
+- What if I want to change a tax rate?
+	I can update the `appsettings.json`. No deploy needed.
 
-- What if I want to remove a category from excluded categories in Basic Sales Tax?
+- What if I want to remove a category from excluded categories in `Basic Sales Tax`?
 	I can update the appsettings.json. No deploy needed.
 
 - What if I want to add a category?
-	I can't just update the appsettings.json because every cagegory is mapped to CategoryType. Each category is not a string but an enumeration, something more than a string due to his business value.
+	I can't just update the `appsettings.json` because every cagegory is mapped to a  `CategoryType`. Each category is not a string but an enumeration, something more than a string due to his business value.
 
-- What if I want to add a new tax of the same type (same is applyiable logic, same concrete decoretor, different description and parameters) of existing one?
+- What if I want to add a new tax of the same type (same applicability logic, same concrete decoretor, different description and parameters) to an existing one? For example a new flat tax.
 	I can update the appsettings.json. No deploy needed.
 
-- What is I want to insert a new tax?
+- What if I want to insert a new tax?
 	a) add a new section in appsettings.json/taxes
-	b) update the TaxSettings class
-	c) Create a new class that inherit from TaxRule
+	b) update the `TaxSettings` class
+	c) Create a new class that inherit from `Tax`
 	d) If necessary, create a new concrete decorator
 
-The only class that we open is TaxSettings. We don't touch the tax calculator engine. We just create new classes.
-With this organization I'm following the **open/close principle**.
+The only class that we open is `TaxSettings`. We don't touch the tax calculator engine. We just create new classes.
+With this organization I'm following the **open/closed principle**.
