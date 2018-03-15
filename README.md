@@ -62,7 +62,7 @@ The core of this software is the engine for tax calculations. There are a lot of
 I add to a target product the logic of tax calculation at runtime with the **Decorator pattern**.
 So a concrete decorator has the responsability to handle business logic for tax calculation.
 
-I create Tax base class for handling other 2 responsabilities:
+I create `Tax` base class for handling other 2 responsabilities:
 1) Logic for tax applicability
 2) Instantiate the right concrete decorator
 
@@ -124,15 +124,13 @@ public IList<TaxedProduct> ApplyTaxes(ShoppingBasket shoppingBasket)
 }
 ```
 
-Running time analysis in this method gives us a `O(number of taxes * number of products in shopping cart)`, which is a linear running time if we consider that number of taxes is constant:
+Running time analysis of this method gives us a `O(number of taxes * number of products in shopping cart)`, which is a linear running time if we consider that number of taxes is constant:
 
 ```
 O(constant * number of products) = O(number of products)
 ```
 
-Note that I don't want to make a new deploy if the rate of some tax change. That's why some information are configurable in appsettings.json
-
-
+I want to allow some update to the software without do a new deploy. That's why some information are configurable in `appsettings.json`.
 
 Now I can handle a lot of use cases.
 
@@ -151,11 +149,8 @@ Now I can handle a lot of use cases.
 - What is I want to insert a new tax?
 	a) add a new section in appsettings.json/taxes
 	b) update the TaxSettings class
-	c) Create a new class thta inherit from TaxRule
+	c) Create a new class that inherit from TaxRule
+	d) If necessary, create a new concrete decorator
 
 The only class that we open is TaxSettings. We don't touch the tax calculator engine. We just create new classes.
-With this organization I'm following the open/close principle.
-My software is close for modification and open for extension.
-
-I can test with decorator
-
+With this organization I'm following the **open/close principle**.
