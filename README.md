@@ -160,4 +160,4 @@ In this way I'm following the **open/closed principle**.
 
 - Input file is correct and valid.
 - 1 product has one and only one category.
-- The price in the input file is related with the single product. For example `1 book at 12.49`, 12.49 is the price of one book. If in input I want write 2 books I will update that string in this way `2 book at 12.49`
+- The price in the input file is related with the single product. For example `1 book at 12.49`, 12.49 is the price of one book. If in input I want to write 2 books I will update that string in this way `2 book at 12.49`
