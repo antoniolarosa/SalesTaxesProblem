@@ -3,8 +3,8 @@ using System.IO;
 using Microsoft.Extensions.Configuration;
 using SalesTaxes.Entities;
 using SalesTaxes.Services;
-using SalesTaxes.Services.Taxes;
-using SalesTaxes.Services.Taxes.Rules;
+using SalesTaxes.Services.TaxCalculation;
+using SalesTaxes.Services.TaxCalculation.Taxes;
 using SalesTaxes.Settings;
 
 namespace SalesTaxes

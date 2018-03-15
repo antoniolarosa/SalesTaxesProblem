@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using NUnit.Framework;
 using SalesTaxes.Entities;
 using SalesTaxes.Services;
-using SalesTaxes.Services.Taxes.Decorators;
+using SalesTaxes.Services.TaxCalculation.Decorators;
 
 namespace SalesTaxes.Fixtures
 {

@@ -1,7 +1,7 @@
 ﻿using SalesTaxes.Entities;
-using SalesTaxes.Services.Taxes.Decorators;
+using SalesTaxes.Services.TaxCalculation.Decorators;
 
-namespace SalesTaxes.Services.Taxes.Rules
+namespace SalesTaxes.Services.TaxCalculation.Taxes
 {
     public abstract class Tax
     {

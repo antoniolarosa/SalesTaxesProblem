@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SalesTaxes.Services.Taxes.Rules;
+using SalesTaxes.Services.TaxCalculation.Taxes;
 
 namespace SalesTaxes.Settings
 {

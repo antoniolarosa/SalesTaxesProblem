@@ -1,7 +1,7 @@
 ﻿using System;
 using SalesTaxes.Entities;
 
-namespace SalesTaxes.Services.Taxes.Decorators
+namespace SalesTaxes.Services.TaxCalculation.Decorators
 {
     public class FlatTaxDecorator : ProductDecorator
     {

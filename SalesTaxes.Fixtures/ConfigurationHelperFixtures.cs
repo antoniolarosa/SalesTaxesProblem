@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using SalesTaxes.Entities;
-using SalesTaxes.Services.Taxes.Rules;
+using SalesTaxes.Services.TaxCalculation.Taxes;
 using SalesTaxes.Settings;
 
 namespace SalesTaxes.Fixtures

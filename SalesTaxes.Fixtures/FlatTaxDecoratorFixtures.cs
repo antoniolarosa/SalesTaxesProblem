@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using SalesTaxes.Entities;
-using SalesTaxes.Services.Taxes.Decorators;
+using SalesTaxes.Services.TaxCalculation.Decorators;
 
 namespace SalesTaxes.Fixtures
 {

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using SalesTaxes.Entities;
 using SalesTaxes.Services;
-using SalesTaxes.Services.Taxes;
-using SalesTaxes.Services.Taxes.Rules;
+using SalesTaxes.Services.TaxCalculation;
+using SalesTaxes.Services.TaxCalculation.Taxes;
 
 namespace SalesTaxes.Fixtures
 {

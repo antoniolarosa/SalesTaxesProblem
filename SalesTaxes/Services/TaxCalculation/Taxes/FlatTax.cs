@@ -1,18 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using SalesTaxes.Entities;
-using SalesTaxes.Services.Taxes.Decorators;
+using SalesTaxes.Services.TaxCalculation.Decorators;
 
-namespace SalesTaxes.Services.Taxes.Rules
+namespace SalesTaxes.Services.TaxCalculation.Taxes
 {
-    public class ImportedTax : Tax
+    public class FlatTax : Tax
     {
         public decimal Rate { get; set; }
+        public HashSet<CategoryType> ExcludedCategories { get; set; } = new HashSet<CategoryType>();
 
         public override bool IsApplicableFor(IProduct product)
         {
             if (product == null) throw new ArgumentNullException(nameof(product));
 
-            return product.IsImported;
+            return !ExcludedCategories.Contains(product.Category);
         }
 
         public override ProductDecorator GetTaxableProductDecorator(IProduct product)
