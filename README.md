@@ -124,7 +124,7 @@ public IList<TaxedProduct> ApplyTaxes(ShoppingBasket shoppingBasket)
 }
 ```
 
-Running time analysis of this method gives us a `O(number of taxes * number of products in shopping cart)`, which is a linear running time if we consider that number of taxes is constant:
+Running time analysis of this method is `O(number of taxes * number of products in shopping cart)`, which is a linear running time  considering that the number of taxes is constant:
 
 ```
 O(constant * number of products) = O(number of products)
