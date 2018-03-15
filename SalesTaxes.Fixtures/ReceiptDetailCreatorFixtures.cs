@@ -65,7 +65,5 @@ namespace SalesTaxes.Fixtures
             Assert.AreEqual(1, receiptDetail.TaxedProducts.Count);
             Assert.AreEqual("1 music CD, Basic Sales Tax", receiptDetail.TaxedProducts.Single().Product.GetDescription());
         }
-
-       
     }
 }
