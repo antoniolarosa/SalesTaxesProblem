@@ -6,7 +6,7 @@ using SalesTaxes.Services;
 using SalesTaxes.Services.TaxCalculation;
 using SalesTaxes.Services.TaxCalculation.Taxes;
 
-namespace SalesTaxes.Fixtures
+namespace SalesTaxes.Fixtures.IntegrationFixtures
 {
     [TestFixture]
     public class IntegrationFixtures

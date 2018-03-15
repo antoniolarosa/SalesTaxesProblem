@@ -4,7 +4,7 @@ using SalesTaxes.Entities;
 using SalesTaxes.Services.TaxCalculation.Decorators;
 using SalesTaxes.Services.TaxCalculation.Taxes;
 
-namespace SalesTaxes.Fixtures
+namespace SalesTaxes.Fixtures.TaxCalculationFixtures
 {
     [TestFixture]
     public class ImportedTaxFixtures

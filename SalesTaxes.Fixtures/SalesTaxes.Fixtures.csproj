@@ -15,16 +15,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="appsettingsWithCategories.json">
+    <None Update="SettingsFixtures\appsettingsWithCategories.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="appsettingsWithTaxes.json">
+    <None Update="SettingsFixtures\appsettingsWithTaxes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="appsettingsWithFlatTaxes.json">
+    <None Update="SettingsFixtures\appsettingsWithFlatTaxes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="appsettingsWithImportedTaxes.json">
+    <None Update="SettingsFixtures\appsettingsWithImportedTaxes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

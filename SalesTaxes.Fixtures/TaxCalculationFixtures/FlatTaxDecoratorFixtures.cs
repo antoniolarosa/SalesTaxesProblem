@@ -2,7 +2,7 @@
 using SalesTaxes.Entities;
 using SalesTaxes.Services.TaxCalculation.Decorators;
 
-namespace SalesTaxes.Fixtures
+namespace SalesTaxes.Fixtures.TaxCalculationFixtures
 {
     [TestFixture]
     public class FlatTaxDecoratorFixtures

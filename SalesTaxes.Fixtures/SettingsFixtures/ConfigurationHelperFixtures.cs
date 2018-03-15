@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
@@ -6,7 +7,7 @@ using SalesTaxes.Entities;
 using SalesTaxes.Services.TaxCalculation.Taxes;
 using SalesTaxes.Settings;
 
-namespace SalesTaxes.Fixtures
+namespace SalesTaxes.Fixtures.SettingsFixtures
 {
     [TestFixture]
     public class ConfigurationHelperFixtures
@@ -15,7 +16,7 @@ namespace SalesTaxes.Fixtures
         public void GetTaxSettings_AppSettingsWithFlatTaxes_MappedFlatTaxes()
         {
             //Arrange
-            IConfigurationRoot configurationRoot = Helper.GetConfigurationRoot("appsettingsWithFlatTaxes.json");
+            IConfigurationRoot configurationRoot = Helper.GetConfigurationRoot(Path.Combine("SettingsFixtures", "appsettingsWithFlatTaxes.json"));
             ConfigurationHelper configurationHelper = new ConfigurationHelper(configurationRoot);
 
             //Act
@@ -44,7 +45,7 @@ namespace SalesTaxes.Fixtures
         public void GetTaxSettings_AppSettingsWithImportedTaxes_MappedImportedTaxes()
         {
             //Arrange
-            IConfigurationRoot configurationRoot = Helper.GetConfigurationRoot("appsettingsWithImportedTaxes.json");
+            IConfigurationRoot configurationRoot = Helper.GetConfigurationRoot(Path.Combine("SettingsFixtures", "appsettingsWithImportedTaxes.json"));
             ConfigurationHelper configurationHelper = new ConfigurationHelper(configurationRoot);
 
             //Act
@@ -69,7 +70,7 @@ namespace SalesTaxes.Fixtures
         public void GetTaxSettings_AppsettingsWithTaxes_MappedTaxes()
         {
             //Arrange
-            IConfigurationRoot configurationRoot = Helper.GetConfigurationRoot("appsettingsWithTaxes.json");
+            IConfigurationRoot configurationRoot = Helper.GetConfigurationRoot(Path.Combine("SettingsFixtures", "appsettingsWithTaxes.json"));
             ConfigurationHelper configurationHelper = new ConfigurationHelper(configurationRoot);
 
             //Act
@@ -102,7 +103,7 @@ namespace SalesTaxes.Fixtures
         public void GetProductCategories()
         {
             //Arrange
-            IConfigurationRoot configurationRoot = Helper.GetConfigurationRoot("appsettingsWithCategories.json");
+            IConfigurationRoot configurationRoot = Helper.GetConfigurationRoot(Path.Combine("SettingsFixtures", "appsettingsWithCategories.json"));
             ConfigurationHelper configurationHelper = new ConfigurationHelper(configurationRoot);
 
             //Act
