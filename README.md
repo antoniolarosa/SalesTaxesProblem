@@ -141,16 +141,16 @@ Now I can handle a lot of use cases. For example:
 	* I can update the appsettings.json. No deploy needed.
 
 - What if I want to add a category?
-	* I can't just update the `appsettings.json` because every cagegory is mapped to a  `CategoryType`. Each category is not a string but an enumeration, something more than a string due to his business value.
+	* I can't just update the `appsettings.json` because every cagegory is mapped to a  `CategoryType`. Each category is not a string but an enumeration, something more than a string due to its business value.
 
 - What if I want to add a new tax of the same type (same applicability logic, same concrete decoretor, different description and parameters) to an existing one? For example a new flat tax.
-	 * I can update the appsettings.json. No deploy needed.
+	 * I can update the `appsettings.json`. No deploy needed.
 
 - What if I want to insert a new tax?
 	* add a new section in appsettings.json/taxes
 	* update the `TaxSettings` class
-	* Create a new class that inherit from `Tax`
-	* If necessary, create a new concrete decorator
+	* create a new class that inherits from `Tax`
+	* if necessary, create a new concrete decorator
 
-The only class that I open is `TaxSettings`. I don't touch the tax calculator engine. I just create new classes.
+The only class that I update is `TaxSettings`. I don't touch the tax calculator engine. I just create new classes.
 In this way I'm following the **open/closed principle**.
