@@ -8,9 +8,9 @@ namespace SalesTaxes.Services.Taxes
 {
     public class TaxCalculator
     {
-        private readonly IList<TaxRule> _taxRules;
+        private readonly IList<Tax> _taxRules;
 
-        public TaxCalculator(IList<TaxRule> taxRules)
+        public TaxCalculator(IList<Tax> taxRules)
         {
             _taxRules = taxRules;         
         }
@@ -23,7 +23,7 @@ namespace SalesTaxes.Services.Taxes
             for (var i = 0; i < shoppingBasket.Products.Count; i++)
             {
                 IProduct product = shoppingBasket.Products[i];
-                foreach (TaxRule taxRule in _taxRules)
+                foreach (Tax taxRule in _taxRules)
                 {
                     if (taxRule.IsApplicableFor(product))
                     {

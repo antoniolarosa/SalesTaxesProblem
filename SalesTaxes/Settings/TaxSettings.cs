@@ -6,14 +6,14 @@ namespace SalesTaxes.Settings
 {
     public class TaxSettings
     {
-        public IList<FlatTaxRule> FlatTaxRules { get; set; } = new List<FlatTaxRule>();
-        public IList<ImportedTaxRule> ImportedTaxRule { get; set; } = new List<ImportedTaxRule>();
+        public IList<FlatTax> FlatTaxRules { get; set; } = new List<FlatTax>();
+        public IList<ImportedTax> ImportedTaxRule { get; set; } = new List<ImportedTax>();
 
-        public IList<TaxRule> GetAllTaxRules()
+        public IList<Tax> GetAllTaxRules()
         {
-            IEnumerable<TaxRule> flatTaxRules = FlatTaxRules;
-            IEnumerable<TaxRule> importedProductTaxRules = ImportedTaxRule;
-            IEnumerable<TaxRule> taxRules = flatTaxRules.Concat(importedProductTaxRules);
+            IEnumerable<Tax> flatTaxRules = FlatTaxRules;
+            IEnumerable<Tax> importedProductTaxRules = ImportedTaxRule;
+            IEnumerable<Tax> taxRules = flatTaxRules.Concat(importedProductTaxRules);
             return taxRules.ToList();
         }
     }

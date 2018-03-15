@@ -5,7 +5,7 @@ using SalesTaxes.Services.Taxes.Decorators;
 
 namespace SalesTaxes.Services.Taxes.Rules
 {
-    public class FlatTaxRule : TaxRule
+    public class FlatTax : Tax
     {
         public decimal Rate { get; set; }
         public HashSet<CategoryType> ExcludedCategories { get; set; } = new HashSet<CategoryType>();

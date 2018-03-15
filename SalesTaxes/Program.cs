@@ -18,7 +18,7 @@ namespace SalesTaxes
             var configurationHelper = new ConfigurationHelper();
             IConfigurationRoot configuration = configurationHelper.GetConfigurationRoot();
             TaxSettings taxSettings = configurationHelper.GetTaxSettings(configuration);
-            IList<TaxRule> taxRules = taxSettings.GetAllTaxRules();
+            IList<Tax> taxRules = taxSettings.GetAllTaxRules();
             var taxCalculator = new TaxCalculator(taxRules);
             IDictionary<string, CategoryType> productCategories = configurationHelper.GetProductCategories(configuration);
             var shoppingBasketCreator = new ShoppingBasketCreator();

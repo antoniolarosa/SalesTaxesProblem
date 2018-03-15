@@ -7,14 +7,14 @@ using SalesTaxes.Services.Taxes.Rules;
 namespace SalesTaxes.Fixtures
 {
     [TestFixture]
-    public class ImportedTaxRuleFixtures
+    public class ImportedTaxFixtures
     {
-        private ImportedTaxRule _importedTaxRule;
+        private ImportedTax _importedTax;
 
         [SetUp]
         public void Initialize()
         {
-            _importedTaxRule = new ImportedTaxRule()
+            _importedTax = new ImportedTax()
             {
                 Description = "Import duty",
                 Rate = 0.05m
@@ -28,7 +28,7 @@ namespace SalesTaxes.Fixtures
             IProduct product = new Product(1,1, "1 book", "book", false, CategoryType.Books);
             
             //Act
-            bool isApplyiable = _importedTaxRule.IsApplicableFor(product);
+            bool isApplyiable = _importedTax.IsApplicableFor(product);
 
             //Assert
             Assert.IsFalse(isApplyiable);
@@ -41,7 +41,7 @@ namespace SalesTaxes.Fixtures
             IProduct product = new Product(1, 1, "1 imported book", "book", true, CategoryType.Books);
 
             //Act
-            bool isApplyiable = _importedTaxRule.IsApplicableFor(product);
+            bool isApplyiable = _importedTax.IsApplicableFor(product);
 
             //Assert
             Assert.IsTrue(isApplyiable);
@@ -54,17 +54,17 @@ namespace SalesTaxes.Fixtures
             IProduct product = null;
 
             //Act and Assert
-            Assert.Throws<ArgumentNullException>(() => _importedTaxRule.IsApplicableFor(product));
+            Assert.Throws<ArgumentNullException>(() => _importedTax.IsApplicableFor(product));
         }
 
         [Test]
-        public void GetTaxableProductDecorator_ImportedTaxRule_FlatTaxDecorator()
+        public void GetTaxableProductDecorator_ImportedTax_FlatTaxDecorator()
         {
             //Arrange
             IProduct product = new Product(1, 1, "1 imported book", "book", true, CategoryType.Books);
 
             //Act
-            ProductDecorator productDecorator = _importedTaxRule.GetTaxableProductDecorator(product);
+            ProductDecorator productDecorator = _importedTax.GetTaxableProductDecorator(product);
 
             //Assert
             Assert.AreEqual("1 imported book, Import duty", productDecorator.GetDescription());
@@ -78,7 +78,7 @@ namespace SalesTaxes.Fixtures
             IProduct product = null;
 
             //Act and Assert
-            Assert.Throws<ArgumentNullException>(() => _importedTaxRule.GetTaxableProductDecorator(product));
+            Assert.Throws<ArgumentNullException>(() => _importedTax.GetTaxableProductDecorator(product));
         }
     }
 }

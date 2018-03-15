@@ -8,14 +8,14 @@ using SalesTaxes.Services.Taxes.Rules;
 namespace SalesTaxes.Fixtures
 {
     [TestFixture]
-    public class FlatTaxRuleFixtures
+    public class FlatTaxFixtures
     {
-        private FlatTaxRule _flatTaxRule;
+        private FlatTax _flatTax;
 
         [SetUp]
         public void Initialize()
         {
-            _flatTaxRule = new FlatTaxRule()
+            _flatTax = new FlatTax()
             {
                 Description = "Basic Sales Tax",
                 Rate = 0.1m
@@ -26,14 +26,14 @@ namespace SalesTaxes.Fixtures
         public void IsApplicableFor_ExcludedCategoryProduct_NotAppyiable()
         {
             //Arrange
-            _flatTaxRule.ExcludedCategories = new HashSet<CategoryType>()
+            _flatTax.ExcludedCategories = new HashSet<CategoryType>()
             {
                 CategoryType.Books
             };
             IProduct product = new Product(1, 1, "1 book", "book", false, CategoryType.Books);
 
             //Act
-            bool isApplyiable = _flatTaxRule.IsApplicableFor(product);
+            bool isApplyiable = _flatTax.IsApplicableFor(product);
 
             //Assert
             Assert.IsFalse(isApplyiable);
@@ -43,11 +43,11 @@ namespace SalesTaxes.Fixtures
         public void IsApplicableFor_NotExcludedCategoryProduct_Appyiable()
         {
             //Arrange
-            _flatTaxRule.ExcludedCategories = new HashSet<CategoryType>();
+            _flatTax.ExcludedCategories = new HashSet<CategoryType>();
             IProduct product = new Product(1, 1, "1 book", "book", false, CategoryType.Books);
 
             //Act
-            bool isApplyiable = _flatTaxRule.IsApplicableFor(product);
+            bool isApplyiable = _flatTax.IsApplicableFor(product);
 
             //Assert
             Assert.IsTrue(isApplyiable);
@@ -60,17 +60,17 @@ namespace SalesTaxes.Fixtures
             IProduct product = null;
 
             //Act and Assert
-            Assert.Throws<ArgumentNullException>(() => _flatTaxRule.IsApplicableFor(product));
+            Assert.Throws<ArgumentNullException>(() => _flatTax.IsApplicableFor(product));
         }
 
         [Test]
-        public void GetTaxableProductDecorator_FlatTaxRule_FlatTaxDecorator()
+        public void GetTaxableProductDecorator_FlatTax_FlatTaxDecorator()
         {
             //Arrange
             IProduct product = new Product(1, 1, "1 imported book", "book", true, CategoryType.Books);
 
             //Act
-            ProductDecorator productDecorator = _flatTaxRule.GetTaxableProductDecorator(product);
+            ProductDecorator productDecorator = _flatTax.GetTaxableProductDecorator(product);
 
             //Assert
             Assert.AreEqual("1 imported book, Basic Sales Tax", productDecorator.GetDescription());
@@ -84,7 +84,7 @@ namespace SalesTaxes.Fixtures
             IProduct product = null;
 
             //Act and Assert
-            Assert.Throws<ArgumentNullException>(() => _flatTaxRule.GetTaxableProductDecorator(product));
+            Assert.Throws<ArgumentNullException>(() => _flatTax.GetTaxableProductDecorator(product));
         }
     }
 }

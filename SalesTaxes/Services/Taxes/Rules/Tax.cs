@@ -3,7 +3,7 @@ using SalesTaxes.Services.Taxes.Decorators;
 
 namespace SalesTaxes.Services.Taxes.Rules
 {
-    public abstract class TaxRule
+    public abstract class Tax
     {
         public string Description { get; set; }
         public abstract bool IsApplicableFor(IProduct product);

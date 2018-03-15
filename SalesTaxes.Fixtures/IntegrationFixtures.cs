@@ -28,9 +28,9 @@ namespace SalesTaxes.Fixtures
                 {"packet of headache pills", CategoryType.MedicalProducts },
             };
 
-            IList<TaxRule> taxRules = new List<TaxRule>()
+            IList<Tax> taxes = new List<Tax>()
             {
-                new FlatTaxRule()
+                new FlatTax()
                 {
                     Description = "Basic Sales Tax",
                     ExcludedCategories = new HashSet<CategoryType>()
@@ -41,13 +41,13 @@ namespace SalesTaxes.Fixtures
                     },
                     Rate = 0.1m
                 },
-                new ImportedTaxRule()
+                new ImportedTax()
                 {
                     Description = "Import duty",
                     Rate = 0.05m
                 }
             };
-            _taxCalculator = new TaxCalculator(taxRules);
+            _taxCalculator = new TaxCalculator(taxes);
             _receiptDetailCreator = new ReceiptDetailCreator();
 
 

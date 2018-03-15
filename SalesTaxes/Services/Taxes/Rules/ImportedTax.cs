@@ -4,7 +4,7 @@ using SalesTaxes.Services.Taxes.Decorators;
 
 namespace SalesTaxes.Services.Taxes.Rules
 {
-    public class ImportedTaxRule : TaxRule
+    public class ImportedTax : Tax
     {
         public decimal Rate { get; set; }
 
