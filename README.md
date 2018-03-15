@@ -62,7 +62,7 @@ The core of this software is the engine for tax calculations. There are a lot of
 I add to a target product the logic of tax calculation at runtime with the **Decorator pattern**.
 So a concrete decorator has the responsability to handle business logic for tax calculation.
 
-I create `Tax` base class for handling other 2 responsabilities:
+I create `Tax` base class for handling 2 other responsabilities:
 1) Logic for tax applicability
 2) Instantiate the right concrete decorator
 
