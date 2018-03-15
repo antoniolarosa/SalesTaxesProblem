@@ -130,27 +130,27 @@ Running time analysis of this method is `O(number of taxes * number of products 
 O(constant * number of products) = O(number of products)
 ```
 
-I want to allow the possibility to update parts of the software without the need to do a new deploy. That's why some information are configurable in `appsettings.json`.
+I want to allow the possibility to update parts of the software without the need to do a new deploy. That's why some of the information is configurable in `appsettings.json`.
 
-Now I can handle a lot of use cases.
+Now I can handle a lot of use cases. For example:
 
 - What if I want to change a tax rate?
-	I can update the `appsettings.json`. No deploy needed.
+	* I can update the `appsettings.json`. No deploy needed.
 
 - What if I want to remove a category from excluded categories in `Basic Sales Tax`?
-	I can update the appsettings.json. No deploy needed.
+	* I can update the appsettings.json. No deploy needed.
 
 - What if I want to add a category?
-	I can't just update the `appsettings.json` because every cagegory is mapped to a  `CategoryType`. Each category is not a string but an enumeration, something more than a string due to his business value.
+	* I can't just update the `appsettings.json` because every cagegory is mapped to a  `CategoryType`. Each category is not a string but an enumeration, something more than a string due to his business value.
 
 - What if I want to add a new tax of the same type (same applicability logic, same concrete decoretor, different description and parameters) to an existing one? For example a new flat tax.
-	I can update the appsettings.json. No deploy needed.
+	 * I can update the appsettings.json. No deploy needed.
 
 - What if I want to insert a new tax?
-	a) add a new section in appsettings.json/taxes
-	b) update the `TaxSettings` class
-	c) Create a new class that inherit from `Tax`
-	d) If necessary, create a new concrete decorator
+	* add a new section in appsettings.json/taxes
+	* update the `TaxSettings` class
+	* Create a new class that inherit from `Tax`
+	* If necessary, create a new concrete decorator
 
 The only class that I open is `TaxSettings`. I don't touch the tax calculator engine. I just create new classes.
 In this way I'm following the **open/closed principle**.
