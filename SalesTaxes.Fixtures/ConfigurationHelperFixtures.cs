@@ -97,5 +97,28 @@ namespace SalesTaxes.Fixtures
             Assert.AreEqual("Import duty", taxes.Last().Description);
             Assert.AreEqual("Basic Sales Tax", taxes.First().Description);
         }
+
+        [Test]
+        public void GetProductCategories()
+        {
+            //Arrange
+            IConfigurationRoot configurationRoot = Helper.GetConfigurationRoot("appsettingsWithCategories.json");
+            ConfigurationHelper configurationHelper = new ConfigurationHelper(configurationRoot);
+
+            //Act
+            IDictionary<string, CategoryType> productCategories = configurationHelper.GetProductCategories();
+
+            //Assert
+            Assert.AreEqual(4, productCategories.Count);
+
+            Assert.AreEqual("book", productCategories.First().Key);
+            Assert.AreEqual(CategoryType.Books, productCategories.First().Value);
+            Assert.AreEqual("box of chocolates", productCategories.Skip(1).First().Key);
+            Assert.AreEqual(CategoryType.Foods, productCategories.Skip(1).First().Value);
+            Assert.AreEqual("chocolate bar", productCategories.Skip(2).First().Key);
+            Assert.AreEqual(CategoryType.Foods, productCategories.Skip(2).First().Value);
+            Assert.AreEqual("packet of headache pills", productCategories.Skip(3).First().Key);
+            Assert.AreEqual(CategoryType.MedicalProducts, productCategories.Skip(3).First().Value);
+        }
     }
 }

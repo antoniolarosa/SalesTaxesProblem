@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="appsettingsWithCategories.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="appsettingsWithTaxes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
