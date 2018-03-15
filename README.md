@@ -2,6 +2,7 @@
 
 - [Description](#description)
 - [Approach to the problem](#approach-to-the-problem)
+- [Assumptions](#assumptions)
 
 ## Description
 
@@ -154,3 +155,9 @@ Now I can handle a lot of use cases. For example:
 
 The only class that I update is `TaxSettings`. I don't touch the tax calculator engine. I just create new classes.
 In this way I'm following the **open/closed principle**.
+
+## Assumptions
+
+- Input file is correct and valid.
+- 1 product has one and only one category.
+- The price in the input file is related with the single product. For example `1 book at 12.49`, 12.49 is the price of one book. If in input I want write 2 books I will update that string in this way `2 book at 12.49`
