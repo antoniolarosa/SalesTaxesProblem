@@ -14,4 +14,10 @@
     <ProjectReference Include="..\SalesTaxes\SalesTaxes.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettingsWithFlatTaxes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
