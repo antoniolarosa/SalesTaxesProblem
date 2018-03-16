@@ -81,13 +81,13 @@ cd SalesTaxesProblem
 dotnet publish -c Release
 ```
 
+### Run the program
+
 go to the path:
 
 ```
 \SalesTaxesProblem\SalesTaxes\bin\Release\netcoreapp2.0\publish\
 ```
-
-### Run the program
 
 There is a `Inputs` folder with 3 txt files.
 The `appsettings.json` has the following default configuration for input files:
