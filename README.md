@@ -1,37 +1,9 @@
 # Sales taxes problem [![master](https://travis-ci.org/antoniolarosa/SalesTaxesProblem.svg?branch=master)](https://travis-ci.org/antoniolarosa/SalesTaxesProblem)
 
 - [Description](#description)
-- [Approach to the problem](#approach-to-the-problem)
+- [Installation & Usage](#installation-&-usage)
 - [Assumptions](#assumptions)
-
-https://www.microsoft.com/net/download/windows
-https://www.microsoft.com/net/download/linux
-
-git clone https://github.com/antoniolarosa/SalesTaxesProblem.git
-cd SalesTaxesProblem
-
-dotnet publish -c Release
-
-go to the path:
-
-\SalesTaxesProblem\SalesTaxes\bin\Release\netcoreapp2.0\publish\
-
-There is a Inputs folder with 3 txt files.
-The appsettings.json has the following default configuration for input files:
-
-"input": {
-    "folder": "Inputs",
-    "fileName" : "Input1.txt"
-  }
-
-change the fileName to test the input you prefer.
-
-dotnet SalesTaxes.dll
-
-\SalesTaxesProblem\SalesTaxes.Fixture
-
-dotnet test
-
+- [Approach to the problem](#approach-to-the-problem)
 
 ## Description
 
@@ -84,6 +56,65 @@ Output 3:
 Sales Taxes: 6.70
 Total: 74.68
 ```
+
+## Installation & Usage
+
+### Requirements
+
+- [.NET Core SDK for Windows](https://www.microsoft.com/net/download/windows)
+
+or
+
+- [.NET Core SDK for Linux](https://www.microsoft.com/net/download/linux)
+
+### Installation steps
+
+```
+git clone https://github.com/antoniolarosa/SalesTaxesProblem.git
+cd SalesTaxesProblem
+
+dotnet publish -c Release
+```
+
+go to the path:
+
+```
+\SalesTaxesProblem\SalesTaxes\bin\Release\netcoreapp2.0\publish\
+```
+
+### Usage
+
+There is a `Inputs` folder with 3 txt files.
+The `appsettings.json` has the following default configuration for input files:
+
+```json
+"input": {
+    "folder": "Inputs",
+    "fileName" : "Input1.txt"
+  }
+```
+
+change the fileName to test the input you prefer.
+
+```
+dotnet SalesTaxes.dll
+```
+### Running test
+
+go to the path:
+
+```
+\SalesTaxesProblem\SalesTaxes.Fixture
+```
+```
+dotnet test
+```
+
+## Assumptions
+
+- Input file is correct and valid.
+- 1 product has one and only one category.
+- The price in the input file is related with the single product. For example `1 book at 12.49`, 12.49 is the price of one book. If in input I want to write 2 books I will update that string in this way `2 book at 12.49`
 
 ## Approach to the problem
 
@@ -184,9 +215,3 @@ Now I can handle a lot of use cases. For example:
 
 The only class that I update is `TaxSettings`. I don't touch the tax calculator engine. I just create new classes.
 In this way I'm following the **open/closed principle**.
-
-## Assumptions
-
-- Input file is correct and valid.
-- 1 product has one and only one category.
-- The price in the input file is related with the single product. For example `1 book at 12.49`, 12.49 is the price of one book. If in input I want to write 2 books I will update that string in this way `2 book at 12.49`
