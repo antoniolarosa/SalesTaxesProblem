@@ -4,6 +4,35 @@
 - [Approach to the problem](#approach-to-the-problem)
 - [Assumptions](#assumptions)
 
+https://www.microsoft.com/net/download/windows
+https://www.microsoft.com/net/download/linux
+
+git clone https://github.com/antoniolarosa/SalesTaxesProblem.git
+cd SalesTaxesProblem
+
+dotnet publish -c Release
+
+go to the path:
+
+\SalesTaxesProblem\SalesTaxes\bin\Release\netcoreapp2.0\publish\
+
+There is a Inputs folder with 3 txt files.
+The appsettings.json has the following default configuration for input files:
+
+"input": {
+    "folder": "Inputs",
+    "fileName" : "Input1.txt"
+  }
+
+change the fileName to test the input you prefer.
+
+dotnet SalesTaxes.dll
+
+\SalesTaxesProblem\SalesTaxes.Fixture
+
+dotnet test
+
+
 ## Description
 
 Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical products that are exempt. Import duty is an additional sales tax applicable on all imported goods at a rate of 5%, with no exemptions.
