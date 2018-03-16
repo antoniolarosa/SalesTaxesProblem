@@ -1,6 +1,7 @@
 # Sales taxes problem [![master](https://travis-ci.org/antoniolarosa/SalesTaxesProblem.svg?branch=master)](https://travis-ci.org/antoniolarosa/SalesTaxesProblem)
 
 - [Description](#description)
+- [Travis CI](#travis-ci)
 - [Installation & Usage](#installation--usage)
 - [Assumptions](#assumptions)
 - [Approach to the problem](#approach-to-the-problem)
@@ -56,6 +57,10 @@ Output 3:
 Sales Taxes: 6.70
 Total: 74.68
 ```
+
+## Travis CI
+
+[Link](https://travis-ci.org/antoniolarosa/SalesTaxesProblem)
 
 ## Installation & Usage
 
