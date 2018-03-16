@@ -82,7 +82,7 @@ go to the path:
 \SalesTaxesProblem\SalesTaxes\bin\Release\netcoreapp2.0\publish\
 ```
 
-### Usage
+### Run the program
 
 There is a `Inputs` folder with 3 txt files.
 The `appsettings.json` has the following default configuration for input files:
@@ -99,7 +99,7 @@ change the fileName to test the input you prefer.
 ```
 dotnet SalesTaxes.dll
 ```
-### Running test
+### Running fixtures
 
 go to the path:
 
