@@ -6,6 +6,9 @@
         {
             public const string Categories = "categories";
             public const string Input = "input";
+            public const string Folder = "folder";
+            public const string FileName = "fileName";
+
             public const string Taxes = "taxes";
         }
 

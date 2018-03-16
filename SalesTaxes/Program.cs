@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using SalesTaxes.Entities;
@@ -13,26 +14,36 @@ namespace SalesTaxes
     {
         static void Main(string[] args)
         {
-            #region Bootstrap
-            
-            IConfigurationRoot configuration = GetConfigurationRoot();
-            var configurationHelper = new ConfigurationHelper(configuration);
-            TaxSettings taxSettings = configurationHelper.GetTaxSettings();
-            IList<Tax> taxes = taxSettings.GetAllTaxes();
-            var taxCalculator = new TaxCalculator(taxes);
-            IDictionary<string, CategoryType> productCategories = configurationHelper.GetProductCategories();
-            var shoppingBasketCreator = new ShoppingBasketCreator();
-            var receiptDetailCreator = new ReceiptDetailCreator();
-            var receiptDeatilPrinter = new ReceiptDeatilPrinter();
+            try
+            {
+                #region Bootstrap
 
-            #endregion
+                IConfigurationRoot configuration = GetConfigurationRoot();
+                var configurationHelper = new ConfigurationHelper(configuration);
+                TaxSettings taxSettings = configurationHelper.GetTaxSettings();
+                IList<Tax> taxes = taxSettings.GetAllTaxes();
+                var taxCalculator = new TaxCalculator(taxes);
+                IDictionary<string, CategoryType> productCategories = configurationHelper.GetProductCategories();
+                var shoppingBasketCreator = new ShoppingBasketCreator();
+                var receiptDetailCreator = new ReceiptDetailCreator();
+                var receiptDeatilPrinter = new ReceiptDeatilPrinter();
 
-            string inputFilePath = configuration[Constants.AppSettings.Input];
-            string[] inputLines = File.ReadAllLines(inputFilePath);
-            ShoppingBasket shoppingBasket = shoppingBasketCreator.CreateShoppingBasket(inputLines, productCategories);
-            IList<TaxedProduct> taxedProducts = taxCalculator.ApplyTaxes(shoppingBasket);
-            ReceiptDetail receiptDetail = receiptDetailCreator.CreateReceiptDetail(taxedProducts);
-            receiptDeatilPrinter.Print(receiptDetail);
+                #endregion
+
+                string inputFolder = configuration[$"{Constants.AppSettings.Input}:{Constants.AppSettings.Folder}"];
+                string inputFileName = configuration[$"{Constants.AppSettings.Input}:{Constants.AppSettings.FileName}"];
+                string inputFilePath = Path.Combine(inputFolder, inputFileName);
+                string[] inputLines = File.ReadAllLines(inputFilePath);
+                ShoppingBasket shoppingBasket = shoppingBasketCreator.CreateShoppingBasket(inputLines, productCategories);
+                IList<TaxedProduct> taxedProducts = taxCalculator.ApplyTaxes(shoppingBasket);
+                ReceiptDetail receiptDetail = receiptDetailCreator.CreateReceiptDetail(taxedProducts);
+                receiptDeatilPrinter.Print(receiptDetail);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.ReadLine();
+            }
         }
 
         private static IConfigurationRoot GetConfigurationRoot()
