@@ -49,8 +49,6 @@ namespace SalesTaxes.Fixtures.IntegrationFixtures
             };
             _taxCalculator = new TaxCalculator(taxes);
             _receiptDetailCreator = new ReceiptDetailCreator();
-
-
         }
 
         [Test]
@@ -60,7 +58,7 @@ namespace SalesTaxes.Fixtures.IntegrationFixtures
             decimal bookPriceExpected = 12.49m;
             decimal musicCdPriceExpected = 16.49m;
             decimal chocolateBarPriceExpected = 0.85m;
-            decimal salesTaxExpected = 1.5m;
+            decimal salesTaxExpected = 1.50m;
             decimal totalExpected = 29.83m;
            
             string[] inputLines = new string[]
@@ -76,7 +74,11 @@ namespace SalesTaxes.Fixtures.IntegrationFixtures
             ReceiptDetail receiptDetail = _receiptDetailCreator.CreateReceiptDetail(taxedProducts);
 
             //Assert
-            Assert.AreEqual($"1 book: {bookPriceExpected}{Environment.NewLine}1 music CD: {musicCdPriceExpected}{Environment.NewLine}1 chocolate bar: {chocolateBarPriceExpected}{Environment.NewLine}Sales Taxes: {salesTaxExpected.ToString().PadRight(4, '0')}{Environment.NewLine}Total: {totalExpected}{Environment.NewLine}", receiptDetail.Receipt);
+            Assert.AreEqual($"1 book: {bookPriceExpected}{Environment.NewLine}" +
+                            $"1 music CD: {musicCdPriceExpected}{Environment.NewLine}" +
+                            $"1 chocolate bar: {chocolateBarPriceExpected}{Environment.NewLine}" +
+                            $"Sales Taxes: {salesTaxExpected}{Environment.NewLine}" +
+                            $"Total: {totalExpected}{Environment.NewLine}", receiptDetail.Receipt);
         }
 
         [Test]
@@ -92,7 +94,6 @@ namespace SalesTaxes.Fixtures.IntegrationFixtures
             {
                 "1 imported box of chocolates at 10.00",
                 "1 imported bottle of perfume at 47.50"
-
             };
 
             //Act
@@ -101,7 +102,10 @@ namespace SalesTaxes.Fixtures.IntegrationFixtures
             ReceiptDetail receiptDetail = _receiptDetailCreator.CreateReceiptDetail(taxedProducts);
 
             //Assert
-            Assert.AreEqual($"1 imported box of chocolates: {importedBoxOfChocolatesPriceExpected}{Environment.NewLine}1 imported bottle of perfume: {importedBottleOfPerfumePriceExpected}{Environment.NewLine}Sales Taxes: {salesTaxExpected.ToString().PadRight(4, '0')}{Environment.NewLine}Total: {totalExpected}{Environment.NewLine}", receiptDetail.Receipt);
+            Assert.AreEqual($"1 imported box of chocolates: {importedBoxOfChocolatesPriceExpected}{Environment.NewLine}" +
+                            $"1 imported bottle of perfume: {importedBottleOfPerfumePriceExpected}{Environment.NewLine}" +
+                            $"Sales Taxes: {salesTaxExpected}{Environment.NewLine}" +
+                            $"Total: {totalExpected}{Environment.NewLine}", receiptDetail.Receipt);
         }
 
         [Test]
@@ -121,7 +125,6 @@ namespace SalesTaxes.Fixtures.IntegrationFixtures
                 "1 bottle of perfume at 18.99",
                 "1 packet of headache pills at 9.75",
                 "1 box of imported chocolates at 11.25"
-
             };
 
             //Act
@@ -130,8 +133,12 @@ namespace SalesTaxes.Fixtures.IntegrationFixtures
             ReceiptDetail receiptDetail = _receiptDetailCreator.CreateReceiptDetail(taxedProducts);
 
             //Assert
-            Assert.AreEqual($"1 imported bottle of perfume: {importedBottleOfPerfumePriceExpected}{Environment.NewLine}1 bottle of perfume: {bottleOfPerfumePriceExpected}{Environment.NewLine}1 packet of headache pills: {packetOfHeadachePillsPriceExpected}{Environment.NewLine}1 imported box of chocolates: {boxOfImportedChocolatesPriceExpected}{Environment.NewLine}Sales Taxes: {salesTaxExpected.ToString().PadRight(4, '0')}{Environment.NewLine}Total: {totalExpected}{Environment.NewLine}", receiptDetail.Receipt);
+            Assert.AreEqual($"1 imported bottle of perfume: {importedBottleOfPerfumePriceExpected}{Environment.NewLine}" +
+                            $"1 bottle of perfume: {bottleOfPerfumePriceExpected}{Environment.NewLine}" +
+                            $"1 packet of headache pills: {packetOfHeadachePillsPriceExpected}{Environment.NewLine}" +
+                            $"1 imported box of chocolates: {boxOfImportedChocolatesPriceExpected}{Environment.NewLine}" +
+                            $"Sales Taxes: {salesTaxExpected}{Environment.NewLine}" +
+                            $"Total: {totalExpected}{Environment.NewLine}", receiptDetail.Receipt);
         }
-
     }
 }
