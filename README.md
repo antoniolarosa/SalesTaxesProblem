@@ -1,7 +1,7 @@
 # Sales taxes problem [![master](https://travis-ci.org/antoniolarosa/SalesTaxesProblem.svg?branch=master)](https://travis-ci.org/antoniolarosa/SalesTaxesProblem)
 
 - [Description](#description)
-- [Installation & Usage](#installation-&-usage)
+- [Installation & Usage](#installation--usage)
 - [Assumptions](#assumptions)
 - [Approach to the problem](#approach-to-the-problem)
 
