@@ -30,10 +30,7 @@ namespace SalesTaxes
 
                 #endregion
 
-                string inputFolder = configuration[$"{Constants.AppSettings.Input}:{Constants.AppSettings.Folder}"];
-                string inputFileName = configuration[$"{Constants.AppSettings.Input}:{Constants.AppSettings.FileName}"];
-                string inputFilePath = Path.Combine(inputFolder, inputFileName);
-                string[] inputLines = File.ReadAllLines(inputFilePath);
+                string[] inputLines = GetInputLines(configuration);
                 ShoppingBasket shoppingBasket = shoppingBasketCreator.CreateShoppingBasket(inputLines, productCategories);
                 IList<TaxedProduct> taxedProducts = taxCalculator.ApplyTaxes(shoppingBasket);
                 ReceiptDetail receiptDetail = receiptDetailCreator.CreateReceiptDetail(taxedProducts);
@@ -44,6 +41,15 @@ namespace SalesTaxes
                 Console.WriteLine(e);
                 Console.ReadLine();
             }
+        }
+
+        private static string[] GetInputLines(IConfigurationRoot configuration)
+        {
+            string inputFolder = configuration[$"{Constants.AppSettings.Input}:{Constants.AppSettings.Folder}"];
+            string inputFileName = configuration[$"{Constants.AppSettings.Input}:{Constants.AppSettings.FileName}"];
+            string inputFilePath = Path.Combine(inputFolder, inputFileName);
+            string[] inputLines = File.ReadAllLines(inputFilePath);
+            return inputLines;
         }
 
         private static IConfigurationRoot GetConfigurationRoot()
